@@ -1,0 +1,16 @@
+
+<mat-card>
+  <mat-card-title>VIDEOS</mat-card-title>
+
+  <mat-card-content>
+
+    <mat-list>
+      <mat-list-item *ngFor="let video of data" (click)="selectVideo.emit(video.id)">
+        {{video.title}}
+        <span style="flex-grow: 1;"></span>
+        <mat-icon style="flex-grow: 0;">launch</mat-icon>
+      </mat-list-item>
+    </mat-list>
+
+  </mat-card-content>
+</mat-card>

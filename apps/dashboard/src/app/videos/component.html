@@ -1,0 +1,22 @@
+
+
+<div class="container d-flex">
+
+  <div class="col-6">
+    <video-manager-list
+      [data]="videos$ | async"
+      [selected]="video$ | async"
+      (selectVideo)="onSelectVideo($event)"
+      (deleteVideo)="onDeleteVideo($event)"
+    ></video-manager-list>
+  </div>
+
+  <div class="col-6">
+    <video-manager-form
+      [selected]="video$ | async"
+      (saveVideo)="saveVideo($event)"
+      (deleteVideo)="onDeleteVideo($event)"
+      (resett)="reset()"
+    ></video-manager-form>
+  </div>
+</div>

@@ -11,11 +11,17 @@
     "target": "es2015",
     "module": "esnext",
     "typeRoots": ["node_modules/@types"],
+    "types": ["gapi"],
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@video-manager/ui": ["libs/ui/src/index.ts"],
+      "@video-manager/material": ["libs/material/src/index.ts"],
+      "@video-manager/core-data": ["libs/core-data/src/index.ts"],
+      "@video-manager/core-state": ["libs/core-state/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

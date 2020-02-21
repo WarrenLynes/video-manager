@@ -1,0 +1,7 @@
+{
+  "/youtube": {
+    "target": "https://www.googleapis.com",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

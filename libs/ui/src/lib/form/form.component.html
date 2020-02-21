@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="selected && selected.id; else elseCreateNew"><h1>{{ selected.title }}</h1></mat-card-title>
+    <ng-template #elseCreateNew><h1 class="border-bottom">Create a New Video</h1></ng-template>
+  </mat-card-header>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-card-content>
+
+      <mat-form-field class="full-width d-flex">
+        <input matInput placeholder="title" type="text" name="title" formControlName="title">
+        <mat-error *ngIf="form.get('title').hasError('required')">Required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width d-flex">
+        <input matInput placeholder="description" type="text" name="description" formControlName="description">
+        <mat-error *ngIf="form.get('description').hasError('required')">Required</mat-error>
+      </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="container">
+        <button type="submit" class="full-width" mat-raised-button color="primary" [disabled]="form.invalid">{{ selected && selected.id ? 'Update' : 'Create' }}</button>
+        <button *ngIf="form.dirty || selected && selected.id" type="button" class="full-width" mat-stroked-button (click)="onCancel()">Cancel</button>
+        <button *ngIf="selected && selected.id" color="warn" type="button" class="full-width" mat-stroked-button (click)="deleteVideo.emit(selected)">Delete</button>
+      </div>
+    </mat-card-actions>
+  </form>
+</mat-card>
+
